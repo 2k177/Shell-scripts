@@ -1,0 +1,61 @@
+Variables:
+
+************************************************************************************************************************
+Shell variables are created once they are assigned a value. 
+A variable can contain a number, a character or a string of characters. 
+Variable name is case sensitive and can consist of a combination of letters and the underscore "_". 
+Value assignment is done using the "=" sign. 
+Note that no space permitted on either side of = sign when initializing variables.
+************************************************************************************************************************
+# greet="Hello James, Welcome back"
+# echo $greet
+Hello James, Welcome back
+
+------------------------------------------------------------------------------------------------------------------------
+******************
+Escape characters
+******************
+# price_per_orange=5
+# echo "Price per Orange is \$ $price_per_orange"
+Price per Orange is $ 5
+# echo "Price per Orange is \$$price_per_orange"
+------------------------------------------------------------------------------------------------------------------------
+*****************
+encapsulation
+*****************
+Price per Orange is $5
+# echo "The price of a Orange is ${\$price_per_orange}"
+-bash: The price of a Orange is ${\$price_per_orange}: bad substitution
+# echo "The price of a Orange is \$${price_per_orange}"
+The price of a Orange is $5
+------------------------------------------------------------------------------------------------------------------------
+********************************************************************
+White space doesn't get eliminated while using encapsulation in "" 
+********************************************************************
+# greeting="Hello    World"
+# echo $greeting
+Hello World
+# echo ${greeting}
+Hello World
+# echo "${greeting}"
+Hello    World
+
+------------------------------------------------------------------------------------------------------------------------------------------
+******************************************************************************************************
+Variables can be assigned with the value of a command output. This is referred to as substitution. 
+Substitution can be done by encapsulating the command with `` (known as back-ticks) or with $()
+******************************************************************************************************
+
+# list_dir=`ls`
+# echo $list_dir
+3D Objects Anaconda3 AppData Application Data Contacts Cookies Documents Downloads Favorites  Local Settings Music My Documents simpleweb
+
+# file_with_time_stamp=file_$(+%y-%m-%d).txt
++%y-%m-%d: command not found
+# file_with_time_stamp=file_$(/bin/date +%y-%m-%d).txt
+# vi $file_with_time_stamp
+# cat $file_with_time_stamp
+helooooo
+# echo $file_with_time_stamp
+file_23-02-04.txt
+-------------------------------------------------------------------------------------------------------------------------------------------
